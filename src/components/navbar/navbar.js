@@ -1,3 +1,4 @@
+import CartWidget from '../cartwidget/CartWidget';
 import './navbar.css';
 
 
@@ -10,8 +11,9 @@ return (
                <li><a class="menu" href="">Categorias</a></li>
                <li><a class="menu" href="">About Us</a></li>
                <li><a class="menu" href="">Contacto</a></li>
+               <CartWidget />
            </ul>
-
+        
 
 
        </nav>);
