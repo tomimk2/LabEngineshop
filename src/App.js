@@ -1,11 +1,15 @@
 
 import './App.css';
-import Navbar from './components/navbar';
+import CardContainer from './components/cardcontainer/CardContainer';
+import Navbar from './components/navbar/navbar';
 
 function App() {
   return (
     <div>
       <Navbar />
+      <CardContainer />
+      <div>
+      </div>
     
     </div>
   );
