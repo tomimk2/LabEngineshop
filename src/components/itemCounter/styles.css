@@ -1,0 +1,8 @@
+.stock {
+   border: black solid 2px;
+   width: 200px;
+   justify-items: center;
+   justify-content: flex-start;
+   top: 10%;
+   left: 10%;
+}

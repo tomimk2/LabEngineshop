@@ -1,9 +1,13 @@
+import "./styles.css"
 import UserCard from "../UserCard";
+
+
+
 
 function CardContainer () {
 
 return (
-    <>
+    <div className="cards">
     <UserCard 
     name="TurboKit's"
     category="Performance"
@@ -20,8 +24,7 @@ return (
     description="coils, spark plugs, cables and more.">
     </UserCard>
     
-    
-    </>
+    </div>
 );
 }
 
