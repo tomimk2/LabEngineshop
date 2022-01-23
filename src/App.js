@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar/navbar';
 import { getProductos } from "./components/Bd/BaseDatos";
 import { useEffect, useState } from 'react';
+import UserCard from './components/UserCard';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
-        products.map((product) => <Item key={product.id} product={product} />)
+        products.map((product) => <UserCard key={product.id} product={product} />)
       )}
       <div>
       </div>
