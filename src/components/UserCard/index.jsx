@@ -1,15 +1,11 @@
 import "./styles.css";
 
-function UserCard ({
-name,
-category,
-description,
-})
+function UserCard ({product})
 {
 return ( <div className="card">
-       <p>{name}</p>
-       <p>{category}</p>
-       <p>{description}</p>
+       <p>{product.name}</p>
+       <p>{product.category}</p>
+       <p>{product.description}</p>
 </div>
 );
 }
