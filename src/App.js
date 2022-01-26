@@ -26,9 +26,6 @@ function App() {
       ) : (
         products.map((product) => <UserCard key={product.id} product={product} />)
       )}
-      <div>
-        <ItemListDetail />
-      </div>
     
     </div>
   );
