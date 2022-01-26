@@ -5,6 +5,7 @@ return ( <div className="card">
        <p>{product.category}</p>
        <p>{product.descriptionLong}</p>
        <p>{product.price}</p>
+       <p>{product.img}</p>
 </div>
 );
 }
