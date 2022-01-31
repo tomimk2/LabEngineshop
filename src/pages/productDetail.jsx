@@ -22,7 +22,7 @@ const ProductDetail = () => {
   return (
     <div>
       <h1>{product.name}</h1>
-      <img src={product.img} alt={product.name} />
+      <img width={"350px"} src={product.img} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price}</p>
     </div>

@@ -23,7 +23,7 @@ return ( <div className="card">
 export const ProductList = ({product}) =>{
        const navigate1 = useNavigate();
        const GoDetail = () => {
-              navigate1("/productos/productId")
+              navigate1( `/productos/${product.id}`)
        }
 
 
