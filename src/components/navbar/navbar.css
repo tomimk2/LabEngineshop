@@ -1,4 +1,6 @@
 .Nav {
+    
+    border-bottom: black solid 2px ;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;

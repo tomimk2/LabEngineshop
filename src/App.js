@@ -1,33 +1,30 @@
-
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/HomePage';
+import Productos from './pages/productos';
+import AboutPage from './pages/about';
+import ContactPage from './pages/contacto';
 import Navbar from './components/navbar/navbar';
-import { getProductos } from "./components/Bd/BaseDatos";
-import { useEffect, useState } from 'react';
-import UserCard from './components/Item';
-import ItemListDetail from './components/ItemListDetail/ItemListDetail';
+import ProductDetail from './pages/productDetail';
 
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    getProductos()
-      .then((data) => setProducts(data))
-      .catch((error) => console.error(error))
-      .finally(() => setIsLoading(false));
-  }, []);
+ 
   return (
-    <div className='App'>
-      <Navbar></Navbar>
-      {isLoading ? (
-        <p>Cargando...</p>
-      ) : (
-        products.map((product) => <UserCard key={product.id} product={product} />)
-      )}
-    
-    </div>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path='/'>
+      <Route index element={<Home /> } />
+      <Route path='/productos'>
+        <Route index  element={<Productos/>  }/>
+        <Route path=":productId" element={<ProductDetail />} />
+      </Route>
+      <Route path='/about' element={<AboutPage /> }/>
+      <Route path='/contacto' element={<ContactPage /> }/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

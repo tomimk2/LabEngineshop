@@ -1,4 +1,4 @@
-export const PRODUCTS = [
+export const CATEGORYS = [
     {
       id: 0,
       name: "TurboKit's",
@@ -22,12 +22,26 @@ export const PRODUCTS = [
     
   ];
   
-  export function getProductos() {
+  export function getCategorias() {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(PRODUCTS), 2000);
+      setTimeout(() => resolve(CATEGORYS), 2000);
     });}
-    export function getItem() {
+    
+    export const PRODUCTS =[
+      {
+        "id": 1,
+        "name": "turbokit",
+        "price": "$400.000",
+        "stock": 100,
+      },
+      {
+        "id": 2,
+        "name": "bobinas de encendido",
+        "price": "$10.000",
+        "stock": 102,
+      }
+    ]
+    export function getproductos() {
       return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(PRODUCTS), 5000);
-      });
-  }
+        setTimeout(() => resolve(PRODUCTS), 3000);
+      });}

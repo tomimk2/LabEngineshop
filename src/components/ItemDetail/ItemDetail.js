@@ -1,6 +1,6 @@
 function ItemDetail ({product})
 {
-return ( <div className="card">
+return ( <div>
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.descriptionLong}</p>
