@@ -1,8 +1,10 @@
 .stock {
+   display: flex;
+   flex-direction: column;
    border: black solid 2px;
    width: 200px;
    justify-items: center;
-   justify-content: flex-start;
+   justify-content: space-around;
    top: 10%;
    left: 10%;
 }

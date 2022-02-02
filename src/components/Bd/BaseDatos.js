@@ -24,7 +24,7 @@ export const CATEGORYS = [
   
   export function getCategorias() {
     return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(CATEGORYS), 2000);
+      setTimeout(() => resolve(CATEGORYS), 1000);
     });}
     
     export const PRODUCTS =[
@@ -33,6 +33,7 @@ export const CATEGORYS = [
         "name": "turbokit",
         "price": "$400.000",
         "stock": 100,
+      
       },
       {
         "id": 2,
@@ -43,5 +44,5 @@ export const CATEGORYS = [
     ]
     export function getproductos() {
       return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(PRODUCTS), 3000);
+        setTimeout(() => resolve(PRODUCTS), 2000);
       });}
