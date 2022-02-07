@@ -10,7 +10,7 @@ export const CategoryList = ({product}) =>{
 
 
 
-return ( <div className="card">
+return ( <div className="cardCat">
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.price}</p>
@@ -28,7 +28,7 @@ export const ProductList = ({product}) =>{
 
 
 
-return ( <div className="card">
+return ( <div className="cardProd">
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.price}</p>

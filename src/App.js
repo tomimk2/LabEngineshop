@@ -8,11 +8,13 @@ import Navbar from './components/navbar/navbar';
 import ProductDetail from './pages/productDetail';
 import NotFoundPage from './pages/NotFoundPage';
 import Carrito from './pages/carritoPage';
+import { CartProvider } from './context/cartContext';
 
 
 function App() {
  
   return (
+    <CartProvider>
     <BrowserRouter>
     <Navbar />
     <Routes>
@@ -30,6 +32,7 @@ function App() {
       </Route>
     </Routes>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

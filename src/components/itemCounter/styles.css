@@ -1,10 +1,17 @@
 .stock {
    display: flex;
-   flex-direction: column;
-   border: black solid 2px;
-   width: 200px;
+   flex-direction: row;
+   border: solid;
+   width: 150px;
+   height: 50px;
    justify-items: center;
-   justify-content: space-around;
-   top: 10%;
-   left: 10%;
+   justify-content: space-between;
+   text-align: center;
+   align-items: center;
+}
+
+.count {
+   display: flex;
+   flex-direction: column;
+   width: 150px;
 }

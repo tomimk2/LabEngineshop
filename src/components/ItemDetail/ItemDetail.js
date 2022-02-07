@@ -1,33 +1,30 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import ItemCount from "../itemCounter/ItemCount";
+import "./style.css";
+import { useCart } from "../../context/cartContext";
+import { useState } from "react";
 
-function ItemDetail ()
-{
-  const { productId } = useParams();
-  const [product, setProduct] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+function ItemDetail ({product}){
 
+const [count, setCount] = useState(1);
 
-  useEffect(() => {
+const { addItem } = useCart();
 
-    const URL = `http://localhost:3001/productos/${productId}`;
-    
-    setIsLoading(true);
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setProduct(data))
-      .finally(() => setIsLoading(false));
-  }, [productId]);
+const handleClick = () => {
+  addItem(product, count )
+ };
 
-  if (isLoading || !product) return <p>Cargando...</p>;
-return ( <div>
+  
+return ( 
+     <div>
+     <div className="Product">
        <h1>{product.name}</h1>
-      <img width={"350px"} src={product.img} alt={product.name} />
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <ItemCount />
-</div>
+       <img width={"350px"} src={product.img} alt={product.name} />
+       <p>{product.description}</p>
+       <p>{product.price}</p>
+     </div>
+     <ItemCount count={count} setCount={setCount}/>
+     <button onClick={handleClick}>Agregar al Carrito</button>
+     </div>
 );
 }
 
