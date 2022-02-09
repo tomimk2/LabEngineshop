@@ -5,6 +5,9 @@ const Carrito = () => {
    
   const {cart, RemoveItem} = useCart();
 
+
+
+
   return (
     <div>
       <h1>Carrito</h1>
