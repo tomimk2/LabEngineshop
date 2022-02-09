@@ -14,10 +14,10 @@ const Carrito = () => {
       <div>
       {cart.map((compra) => {
         return (
-           <div>
+           <div key={compra.item.id}>
              <p>{compra.item.name}</p>
              <p>{compra.quantity}</p>
-             <p>{compra.item.price}</p>
+             <p>$ {compra.item.price * compra.quantity}</p>
              <button onClick={() => RemoveItem(compra.item.id)}>x</button>
            </div>
         );
