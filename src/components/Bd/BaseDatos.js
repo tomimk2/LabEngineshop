@@ -27,22 +27,3 @@ export const CATEGORYS = [
       setTimeout(() => resolve(CATEGORYS), 1000);
     });}
     
-    export const PRODUCTS =[
-      {
-        "id": 1,
-        "name": "turbokit",
-        "price": "$400.000",
-        "stock": 100,
-      
-      },
-      {
-        "id": 2,
-        "name": "bobinas de encendido",
-        "price": "$10.000",
-        "stock": 102,
-      }
-    ]
-    export function getproductos() {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(PRODUCTS), 2000);
-      });}

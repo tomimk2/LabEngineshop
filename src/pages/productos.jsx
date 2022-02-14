@@ -1,31 +1,49 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { getproductos } from "../components/Bd/BaseDatos";
+import { getFirestore } from "../firebase";
 import { ProductList } from "../components/Item";
 
 
 const Productos = () => {
-  const [products, setProducts] = useState([]);
-const [isLoading, setIsLoading] = useState(false);
+ const [products, setProductos] = useState([]);
+ const [isLoading, setIsLoading] = useState(false);
+ const [error, setError] = useState(null);
   
  useEffect(() => {
-  setIsLoading(true);
-  getproductos()
-    .then((data) => setProducts(data))
-    .catch((error) => console.error(error))
-     .finally(() => setIsLoading(false));}, []);
 
-  return (
-    <div>
-      <h1>productos</h1>
-      {isLoading ? (
-    <p>Cargando...</p>
-  ) : (
-    products.map((product) => <ProductList key={product.id} product={product} />)
-  )}
-      <Outlet />
-    </div>
-  );
-};
+  const db = getFirestore();
+  const productsCollection = db.collection('products');
+  
+  const getDataFromFirestore = async () => {
+    try{
+      const response = await productsCollection.get();
+      if (response.empty) console.log("no hay productos"); 
+     setProductos(response.docs.map((doc) => ({...doc.data(), id: doc.id })));
+    } catch (err) {
+      setError(err);
+    }finally {
+      setIsLoading (false);
+    }
+  };
+
+  getDataFromFirestore();
+
+if(isLoading) {
+  return <p>Cargando los productos ..</p>
+} else if (error) {
+  return <p>ha habido un error</p>
+} else 
+   return (
+   <div>
+     {products.map((product) => {
+       return <ProductList key={product.id} product={product} />;
+     })}
+     <Outlet/>
+   </div>
+  )
+  
+ })
+}
+
 
 export default Productos;

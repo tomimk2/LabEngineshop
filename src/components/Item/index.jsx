@@ -23,11 +23,8 @@ return ( <div className="cardCat">
 export const ProductList = ({product}) =>{
        const navigate1 = useNavigate();
        const GoDetail = () => {
-              navigate1( `/productos/${product.id}`)
+              navigate1(`/productos/${product.id}`)
        }
-
-
-
 return ( <div className="cardProd">
        <p>{product.name}</p>
        <p>{product.category}</p>

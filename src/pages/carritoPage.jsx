@@ -3,7 +3,7 @@ import { useCart } from "../context/cartContext";
 
 const Carrito = () => {
    
-  const {cart, RemoveItem} = useCart();
+  const {cart, RemoveItem, ClearAll} = useCart();
 
 
 
@@ -23,6 +23,7 @@ const Carrito = () => {
         );
       })}
       </div>
+      <button onClick={ClearAll}>Vaciar Carrito</button>
       <button><Link to="/productos" >Seguir comprando</Link></button>
 
     </div>
