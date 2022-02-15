@@ -8,6 +8,7 @@ import Navbar from './components/navbar/navbar';
 import ProductDetail from './pages/productDetail';
 import NotFoundPage from './pages/NotFoundPage';
 import Carrito from './pages/carritoPage';
+import FinalizarPage from './pages/FinalizarPage';
 import { CartProvider } from './context/cartContext';
 
 
@@ -27,6 +28,7 @@ function App() {
        <Route path='/about' element={<AboutPage /> }/>
        <Route path='/contacto' element={<ContactPage /> }/>
        <Route path='/carrito' element={<Carrito />}/>
+       <Route path="thanks/:orderId" element={<FinalizarPage />} />
        <Route path="*" element={<NotFoundPage />} />
 
       </Route>

@@ -6,8 +6,7 @@
         "price": 400000,
         "description": "Turbo kit aplicacion honda k20/k24 ",
         "stock": 100,
-        "img": "https://m.media-amazon.com/images/I/71sdZKUlLPL._AC_SL1500_.jpg",
-        "CategoryId":1
+        "img": "https://m.media-amazon.com/images/I/71sdZKUlLPL._AC_SL1500_.jpg"
       },
       {
         "id": 2,
@@ -15,8 +14,7 @@
         "price": 10000,
         "description": "bobinas rojas reforzadas individuales",
         "stock": 102,
-        "img": "https://www.shopdap.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/0/6/06e-905-115-f-bos-.jpg",
-        "CategoryId":1
+        "img": "https://www.shopdap.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/0/6/06e-905-115-f-bos-.jpg"      
       },
       {
         "id": 3,
@@ -24,26 +22,23 @@
         "price": 90000,
         "description": "Inyección programable Fueltech FT 450",
         "stock": 50,
-        "img": "https://www.shopdap.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/0/6/06e-905-115-f-bos-.jpg",
-        "CategoryId":1
+        "img": "https://www.nakatech.com.ar/wp-content/uploads/2018/12/T_-_FT450_-_Dual_-_Dash_01_CT_-_BR.png"
       },
       {
         "id": 4,
-        "name": "bobinas de encendido",
-        "price": 10000,
-        "description": "bobinas rojas reforzadas individuales",
-        "stock": 102,
-        "img": "https://www.shopdap.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/0/6/06e-905-115-f-bos-.jpg",
-        "CategoryId":1
+        "name": "suporte airvent vw golf",
+        "price": 1500,
+        "description": "soporte para reloj 52 mm de vw golf",
+        "stock": 10,
+        "img": "https://i.ebayimg.com/images/g/fXQAAOSwmfhX4n7p/s-l300.jpg"
       },
       {
         "id": 5,
-        "name": "bobinas de encendido",
-        "price": 10000,
-        "description": "bobinas rojas reforzadas individuales",
-        "stock": 102,
-        "img": "https://www.shopdap.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/0/6/06e-905-115-f-bos-.jpg",
-        "CategoryId":1
+        "name": "bujías",
+        "price": 1000,
+        "description": "bujías de iridium grado 5",
+        "stock": 100,
+        "img": "http://www.ngkntk.com.br/automotivo/wp-content/uploads/2012/09/Vela-laser-iridium-300x2001.jpg"
       }
       ]
 }
