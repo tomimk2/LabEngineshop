@@ -10,7 +10,9 @@ export const CategoryList = ({product}) =>{
 
 
 
-return ( <div className="card">
+return ( 
+
+<div className="card">
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.price}</p>
@@ -18,6 +20,7 @@ return ( <div className="card">
         Ver más Productos
       </button>
 </div>
+
 );
 }
 export const ProductList = ({product}) =>{

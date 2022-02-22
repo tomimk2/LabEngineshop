@@ -7,7 +7,7 @@ import { getFirestore } from "../firebase";
 
 const Carrito = () => {
    
-  const {cart, RemoveItem, ClearAll} = useCart();
+  const {cart, ClearAll} = useCart();
   const [name, setName] = useState();
   const [phone, setPhone] = useState();
   let navigate = useNavigate();
@@ -19,7 +19,7 @@ const Carrito = () => {
     });
     return total;
   };
-
+ 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
@@ -38,9 +38,22 @@ const Carrito = () => {
     const db = getFirestore();
     const ordersCollection = db.collection("orders");
     const response = await ordersCollection.add(newOrder);
+    ClearAll(cart);
     navigate(`/Finalizar/${response.id}`);
   
   };
+  if (cart.length === 0) {
+    return (
+      <div >
+        <div >
+          <h1>Carrito</h1>
+          <h2>El carrito esta vacio, si quieres puedes ver el catálogo de productos</h2>
+          <br />
+          <button className="btn btn-primary" onClick={() => navigate("/productos")}>Ver catálogo</button>
+        </div>
+      </div>
+    )
+  } else {
   return (
     <div>
       <h1>Carrito</h1>
@@ -51,7 +64,7 @@ const Carrito = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           border: "2px solid black",
-          width: "550px",
+          width: "500px",
         }}>
             <div style={{
               display: "flex",
@@ -59,14 +72,17 @@ const Carrito = () => {
               justifyContent: "space-between",
               width: "500px",
             }} key={compra.item.id}>
+              <img src={compra.item.img} style={{ maxHeight: '100px', width: '100px' }} alt={compra.item.name} />
               <p>{compra.item.name}</p>
               <p>${compra.item.price}</p>
               <p>{compra.quantity} Unidades</p>
-              <p>= $ {compra.item.price * compra.quantity}</p>           
+              <p>= $ {compra.item.price * compra.quantity}</p>    
+              </div>    
+                
             </div>
-            <button onClick={RemoveItem}>X</button></div>
+            
         );
-      })}
+      })} 
       <button onClick={ClearAll}>Vaciar Carrito</button>
       <button><Link to="/productos">Seguir comprando</Link></button>
       <h2>Introduzca sus datos:</h2>
@@ -92,10 +108,10 @@ const Carrito = () => {
           placeholder="Escriba su teléfono"
           value={phone}
           onChange={(e) => setPhone(e.target.value)} />
-        <input type="submit" value="Finalizar compra" />
+        <input type="submit" value="Finalizar compra" className="btn btn-primary mt-2"/>
       </form>
     </div>
-  );
+  );}
 };
 
 export default Carrito;

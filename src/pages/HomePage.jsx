@@ -15,7 +15,13 @@ const [isLoading, setIsLoading] = useState(false);
      .finally(() => setIsLoading(false));}, []);
 
     return (
-        <div>
+        <div style={{
+          marginTop:"0%",
+          marginBottom:"0%",         
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}>
         <h1>HomePage</h1>
   {isLoading ? (
     <p>Cargando...</p>

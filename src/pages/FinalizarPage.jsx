@@ -1,50 +1,68 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useCart } from "../context/cartContext";
+import { useNavigate, useParams } from "react-router-dom";
 import { getFirestore } from "../firebase";
 
 const FinalizarPage = () => {
-    const { orderId } = useParams();
-    const [order, setOrder] = useState({});
-    const {cart} = useCart();
-  
-    useEffect(() => {
-      const db = getFirestore();
-      db.collection("orders")
-        .doc(orderId)
-        .get()
-        .then((res) => setOrder({ id: res.id, ...res.data() }));
-    }, [orderId]);
-  
-    if (!order.id) {
-      return <p>Cargando...</p>;
-    }
-  
-    return (
+  const { orderId } = useParams();
+  const [order, setOrder] = useState({});
 
-        <div> 
-          <div>
-            <h1 style={{ fontSize: "50px", marginLeft:"40%",}}>Felicidades {order.buyer.name}!!</h1> 
-            <h5 style={{ fontSize: "25px",}}>Su compra se realizo exitosamente</h5>
-            <h5>Detalle de su compra:</h5>
-            </div>
-            {cart.map((compra) => {
-          return ( 
-           <div style={{
-             display: "flex",
-             flexDirection: "row",
-             justifyContent: "space-arround",
-             width: "500px",
-            }} key={compra.item.id}>
-          <p>{compra.item.name}</p>
-          <p>{compra.quantity} Unidades</p>
-          <p>= $ {compra.item.price * compra.quantity}</p>
+  const navigate = useNavigate();
+
+  const GoToHome = () => {
+    navigate("/")
+  }
+
+  useEffect(() => {
+    const db = getFirestore();
+    db.collection("orders")
+      .doc(orderId)
+      .get()
+      .then((res) => setOrder({ id: res.id, ...res.data() }));
+  }, [orderId]);
+
+  if (!order.id) {
+    return (
+        <div>
+          <h2>Cargando...</h2>
         </div>
-        
-    );})}<p>  Total: $ {order.total} </p></div> 
-    
     );
-  };
+  }
+  return (
+    <div >
+      <div >
+        <h1 >Gracias por su compra, sr/sra. {order.buyer.name}</h1>
+        <h2>Detalle de su compra:</h2>
+      </div>
+      <div className="col-12">
+        <div className="row">
+          {order.items.map((product) => {
+            return (
+              <div className="col-4 my-3">
+                <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-evenly",
+                    width: "550px",
+                    border: "2px solid green",
+                  }}>
+                  <img src={product.item.img} style={{ maxHeight: '100px', width: '100px' }} alt={product.item.name} />
+                    <h4 className="card-title">{product.item.name}</h4>
+                    <p className="card-text">Precio: ${product.item.price}</p>
+                    <p className="card-text">Cantidad: {product.quantity} Unidades</p>
+                    <p className="card-text">Total Producto: {product.item.price * product.quantity}</p>
+
+                </div>
+              </div>
+            )
+          })}
+          <p className="card-text">Total: ${order.total}</p>
+          <button onClick={GoToHome}>Aceptar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
   export default FinalizarPage;
 
 
