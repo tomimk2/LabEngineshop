@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import { getFirestore } from "../firebase";
 
@@ -9,12 +9,6 @@ const ProductDetail = () => {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const navigate = useNavigate();
-
-       const GoToCarro = () => {
-              navigate("/carrito")
-       };
 
 
   useEffect(() => {
@@ -36,7 +30,6 @@ const ProductDetail = () => {
   return (
     <div>
      <ItemDetail product={product} />
-     <button onClick={GoToCarro}>Ir al Carrito</button>
     </div>
   );
 };

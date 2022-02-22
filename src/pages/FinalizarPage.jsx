@@ -6,7 +6,7 @@ import { getFirestore } from "../firebase";
 const FinalizarPage = () => {
     const { orderId } = useParams();
     const [order, setOrder] = useState({});
-    const {getTotal} = useCart();
+    const {cart} = useCart();
   
     useEffect(() => {
       const db = getFirestore();
@@ -21,12 +21,31 @@ const FinalizarPage = () => {
     }
   
     return (
-      <div>
-        <h1>Gracias por Elegirnos {order.buyer.name}!</h1>
-        <h2>Detalle de su compra:</h2>
-        <p>{order.items[0].item.name}</p>
-        <p>{getTotal}</p>
-      </div>
+
+        <div> 
+          <div>
+            <h1 style={{ fontSize: "50px", marginLeft:"40%",}}>Felicidades {order.buyer.name}!!</h1> 
+            <h5 style={{ fontSize: "25px",}}>Su compra se realizo exitosamente</h5>
+            <h5>Detalle de su compra:</h5>
+            </div>
+            {cart.map((compra) => {
+          return ( 
+           <div style={{
+             display: "flex",
+             flexDirection: "row",
+             justifyContent: "space-arround",
+             width: "500px",
+            }} key={compra.item.id}>
+          <p>{compra.item.name}</p>
+          <p>{compra.quantity} Unidades</p>
+          <p>= $ {compra.item.price * compra.quantity}</p>
+        </div>
+        
+    );})}<p>  Total: $ {order.total} </p></div> 
+    
     );
   };
   export default FinalizarPage;
+
+
+  

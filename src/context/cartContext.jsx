@@ -17,29 +17,36 @@ export const CartProvider = ({ children }) => {
     getQuantity();
   }, [cart]);
 
-  const getTotal = (compra) => {
-    let total = 0;
-    compra.forEach((element) => {
-      total += element.item.price * element.quantity;
-    });
-    return total;
-  };
   const addItem = (item, quantity) => {
-    const newItem = { item, quantity };
-    setCart((prevState) => [...prevState, newItem]);
+    const newItem = cart.some((order) => order.item.id === item.id);
+  
+    if (newItem) {
+      const updatedCart = cart.map((order) => {
+        if (order.item.id === item.id) {
+          return { ...order, quantity: quantity + order.quantity };
+        } else {
+          return order;
+        }
+      });
+      setCart(updatedCart);
+    } else {
+    
+      setCart((prev) => [...prev, { item, quantity }]);
+    }
   };
   const RemoveItem = (id) => {
- setCart((prev) => prev.filter((element) => element.item.id !== id))
-};
+    setCart((prev) => prev.filter((element) => element.item.id !== id));
+  };
 
 const ClearAll = () => {
   setCart ([]);
 };
   return (
-    <CartContext.Provider value={{ cart, addItem, RemoveItem, ClearAll, cartQuantity, getTotal}}>
+    <CartContext.Provider value={{ cart, addItem, RemoveItem, ClearAll, cartQuantity}}>
       {children}
     </CartContext.Provider>
   );
 };
 
 export const useCart = () => useContext(CartContext);
+

@@ -28,7 +28,7 @@ function App() {
        <Route path='/about' element={<AboutPage /> }/>
        <Route path='/contacto' element={<ContactPage /> }/>
        <Route path='/carrito' element={<Carrito />}/>
-       <Route path="thanks/:orderId" element={<FinalizarPage />} />
+       <Route path="Finalizar/:orderId" element={<FinalizarPage />} />
        <Route path="*" element={<NotFoundPage />} />
 
       </Route>

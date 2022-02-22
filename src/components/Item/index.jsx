@@ -10,7 +10,7 @@ export const CategoryList = ({product}) =>{
 
 
 
-return ( <div className="cardCat">
+return ( <div className="card">
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.price}</p>
@@ -25,7 +25,7 @@ export const ProductList = ({product}) =>{
        const GoDetail = () => {
               navigate1(`/productos/${product.id}`)
        }
-return ( <div className="cardProd">
+return ( <div className="card">
        <p>{product.name}</p>
        <p>{product.category}</p>
        <p>{product.price}</p>

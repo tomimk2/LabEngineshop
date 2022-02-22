@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 import { getFirestore } from "../firebase";
-import "./style.css";
+
+
 
 const Carrito = () => {
    
@@ -37,28 +38,44 @@ const Carrito = () => {
     const db = getFirestore();
     const ordersCollection = db.collection("orders");
     const response = await ordersCollection.add(newOrder);
-    navigate(`/thanks/${response.id}`);
+    navigate(`/Finalizar/${response.id}`);
+  
   };
   return (
-    <><div>
+    <div>
       <h1>Carrito</h1>
       <h2>Detalle de la compra:</h2>
       {cart.map((compra) => {
-        return (
-          <div className="styleCarrito2">
-            <div key={compra.item.id}>
-              <p>{compra.item.img}</p>
-              <p>Nombre:
-              {compra.item.name}</p>
-              <p>$ {compra.item.price * compra.quantity}</p>
+        return ( <div style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          border: "2px solid black",
+          width: "550px",
+        }}>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "500px",
+            }} key={compra.item.id}>
+              <p>{compra.item.name}</p>
+              <p>${compra.item.price}</p>
+              <p>{compra.quantity} Unidades</p>
+              <p>= $ {compra.item.price * compra.quantity}</p>           
             </div>
-          <button onClick={RemoveItem}>X</button>
-          </div>
+            <button onClick={RemoveItem}>X</button></div>
         );
       })}
+      <button onClick={ClearAll}>Vaciar Carrito</button>
+      <button><Link to="/productos">Seguir comprando</Link></button>
       <h2>Introduzca sus datos:</h2>
-      <form className="styleCarrito"
-        onSubmit={handleSubmit}>
+      <form style={{
+          display: "flex",
+          flexDirection: "column",
+          border: "4px solid darkblue",
+          width: "250px",
+        }} onSubmit={handleSubmit}>
         <label htmlFor="name">Nombre</label>
         <input
           type="text"
@@ -78,8 +95,6 @@ const Carrito = () => {
         <input type="submit" value="Finalizar compra" />
       </form>
     </div>
-    <button onClick={ClearAll}>Vaciar Carrito</button>
-    <button><Link to="/productos">Seguir comprando</Link></button></>
   );
 };
 

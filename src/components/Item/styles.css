@@ -1,15 +1,9 @@
-.cardCat {
-    border:black solid 1.5px;
-    margin: 50px auto 50px;
-    float: left;
-    padding: 0 1.7rem;
-    width: 300px;
-    
-};
-.cardProd{
-    border:black solid 1.5px;
-    margin: 50px auto 50px;
-    float: left;
-    padding: 0 1.7rem;
+.card{
+    margin: 0 auto;
+    background: var(--card-color);
+    color:rgb(0, 0, 0);
     width: 400px;
-};
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; }

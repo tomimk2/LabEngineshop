@@ -1,6 +1,15 @@
 .Product {
-    display: flex;
-    flex-direction: row;
-   width: 500px;
+   width: 350px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 };
+.card{
+    margin: 0 auto;
+    background: var(--card-color);
+    color:rgb(0, 0, 0);
+    width: 800px;
+    height: 1000px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
